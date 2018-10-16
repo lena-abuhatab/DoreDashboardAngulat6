@@ -1,0 +1,9 @@
+/* .top-header-icon.show .dropdown-menu {
+  display: block;
+} */
+.name {
+  font-family: Nunito, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #212121;
+}

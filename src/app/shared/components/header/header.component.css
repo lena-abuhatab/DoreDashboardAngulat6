@@ -1,0 +1,18 @@
+app-dropdown.header-icon {
+  position: relative;
+}
+app-dropdown.header-icon:after {
+  font-size: 10px;
+  content: "3";
+  color: #922c88;
+  border: 1px solid #922c88;
+  border-radius: 10px;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  font-weight: 700;
+  top: -10px;
+  right: 10px;
+  line-height: 14px;
+}

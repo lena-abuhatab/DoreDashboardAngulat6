@@ -1,0 +1,14 @@
+<div class="position-relative d-inline-block top-header-icon" #anchor (click)="OnDropDownMenu()">
+  <button class="header-icon btn btn-empty" type="button">
+    <i class="{{btnIcon}}"></i>
+    <span *ngIf="show">
+      <span class="name">{{userName}}</span>
+      <span>
+        <img alt="Profile Picture" [src]="userImage">
+      </span>
+    </span>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right mt-1 position-absolute show" id="{{dropDownID}}" #popup *ngIf="dropDownUser">
+    <ng-content></ng-content>
+  </div>
+</div>

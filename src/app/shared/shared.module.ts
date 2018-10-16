@@ -1,3 +1,4 @@
+import { DropdownDirective } from "./directives/dropdown.directive";
 import { NgModule } from "@angular/core";
 import { MaterialModule } from "./modules/material.module";
 import { TranslateModule } from "@ngx-translate/core";
@@ -17,6 +18,7 @@ import { NgxExampleLibraryModule } from "@ismaestro/ngx-example-library";
 import { WebStorageModule } from "ngx-store";
 import { HeroLoadingComponent } from "./components/hero-loading/hero-loading.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { DropdownComponent } from './components/UI/dropdown/dropdown.component';
 
 @NgModule({
   imports: [
@@ -39,7 +41,9 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
     HeroCardComponent,
     HeroLoadingComponent,
     ScrollToFirstInvalidDirective,
-    SidebarComponent
+    DropdownDirective,
+    SidebarComponent,
+    DropdownComponent
   ],
   exports: [
     CommonModule,
@@ -55,7 +59,9 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
     SpinnerComponent,
     HeroCardComponent,
     HeroLoadingComponent,
-    ScrollToFirstInvalidDirective
+    ScrollToFirstInvalidDirective,
+    DropdownDirective,
+    DropdownComponent
   ]
 })
 export class SharedModule {}
