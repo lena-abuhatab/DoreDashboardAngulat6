@@ -1,0 +1,26 @@
+.nav-tabs.separator-tabs .nav-link {
+  text-transform: uppercase;
+}
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border: initial;
+  color: #922c88;
+  cursor: pointer;
+}
+.tab-content {
+  display: block;
+  overflow: scroll;
+  height: 404px;
+}
+
+.nav-tabs.separator-tabs .nav-link {
+  padding-bottom: 8px;
+}
+.tabset-style ul li i {
+  font-size: 15px !important;
+  margin-right: 0px !important;
+}
+.tabset-style .nav-link {
+  margin-right: 7px !important;
+  font-size: 12px !important;
+}

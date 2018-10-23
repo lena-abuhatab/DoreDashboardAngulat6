@@ -1,0 +1,11 @@
+<div class="sub-menu">
+  <div class="scroll ps" style="height: 335px;">
+    <ul class="list-unstyled" data-link="dashboard"  [ngClass]="{'shown':sIndex === index}">
+      <li *ngFor="let item of subMenuInfo;let i = index">
+        <a >
+          <i class="simple-icon-briefcase"></i> {{item.title}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

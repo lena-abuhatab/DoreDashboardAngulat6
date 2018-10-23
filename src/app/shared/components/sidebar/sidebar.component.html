@@ -1,38 +1,41 @@
+<!-- <div class="sidebar">
+  <div class="main-menu">
+    <div class="scroll ps ps--active-y" style="height: 296px;">
+      <ul class="list-unstyled">
+        <li *ngFor="let item of menuInfo;let i = index" class="menu-item" [ngClass]="{'item-toggle-on':item.toggle === 'on'}">
+          <a [routerLink]="[item.routerLink.join('/')]" *ngIf="item.routerLink" routerLinkActive="active" class="menu-link">
+            <i class="iconsmind-{{item.icon}}"></i>
+            <span>{{item.title}}</span>
+          </a>
+          <a class="menu-link" *ngIf="!item.routerLink" (click)="isToggleOn(item)">
+            <i class="iconsmind-{{item.icon}}" *ngIf="item.icon"></i>
+            <span>{{item.title}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+</div> -->
+
+
 <div class="sidebar">
   <div class="main-menu">
     <div class="scroll " style="
-height: 273px;
+height: 673px;
 ">
       <ul class="list-unstyled">
-        <li>
-          <a href="#dashboard">
-            <i class="iconsmind-Shop-4"></i>
-            <span>Dashboards</span>
+
+        <li *ngFor="let item of menuInfo;let i = index" class="menu-item" [ngClass]="{'active':sIndex === i}">
+          <a [routerLink]="[item.routerLink.join('/')]" *ngIf="item.routerLink" routerLinkActive="active" class="menu-link" (click)="onDirectLink(i)"
+            (click)="onDirectLink()">
+            <i class="iconsmind-{{item.icon}}"></i>
+            <span>{{item.title}}</span>
           </a>
-        </li>
-        <li>
-          <a href="#layouts">
-            <i class="iconsmind-Digital-Drawing"></i> Layouts
-          </a>
-        </li>
-        <li class="active">
-          <a href="#applications">
-            <i class="iconsmind-Air-Balloon"></i> Applications
-          </a>
-        </li>
-        <li>
-          <a href="#ui">
-            <i class="iconsmind-Pantone"></i> UI
-          </a>
-        </li>
-        <li>
-          <a href="#menu">
-            <i class="iconsmind-Three-ArrowFork"></i> Menu
-          </a>
-        </li>
-        <li>
-          <a href="#menu">
-            <i class="iconsmind-Three-ArrowFork"></i> Menu
+          <a class="menu-link" *ngIf="!item.routerLink" (click)="selectedSort(i)">
+            <i class="iconsmind-{{item.icon}}" *ngIf="item.icon"></i>
+            <span>{{item.title}}</span>
           </a>
         </li>
       </ul>
@@ -40,7 +43,7 @@ height: 273px;
   </div>
 
   <div class="sub-menu">
-    <div class="scroll">
+    <div class="scroll ps" style="height: 335px;">
       <ul class="list-unstyled" data-link="dashboard">
         <li>
           <a href="Dashboard.Default.html">
@@ -64,7 +67,7 @@ height: 273px;
         </li>
       </ul>
 
-      <ul class="list-unstyled" data-link="layouts">
+      <ul class="list-unstyled" data-link="layouts" [ngClass]="{'shown':sIndex === 1}">
         <li>
           <a href="Layouts.List.html">
             <i class="simple-icon-credit-card"></i> Data List
@@ -111,7 +114,7 @@ height: 273px;
           </a>
         </li>
       </ul>
-      <ul class="list-unstyled" data-link="applications">
+      <ul class="list-unstyled" data-link="applications" [ngClass]="{'shown':sIndex === 2}">
         <li class="active">
           <a href="Apps.Todo.List.html">
             <i class="simple-icon-check"></i> Todo
@@ -128,7 +131,7 @@ height: 273px;
           </a>
         </li>
       </ul>
-      <ul class="list-unstyled" data-link="ui">
+      <ul class="list-unstyled" data-link="ui" [ngClass]="{'shown':sIndex === 3}">
         <li>
           <a href="Ui.Alerts.html">
             <i class="simple-icon-bell"></i> Alerts
@@ -213,7 +216,7 @@ height: 273px;
 
         <li>
           <a href="Ui.PopoverandTooltip.html">
-            <i class="simple-icon-pin"></i> Popover &amp; Tooltip
+            <i class="simple-icon-pin"></i> Popover & Tooltip
           </a>
         </li>
         <li>
@@ -223,7 +226,7 @@ height: 273px;
         </li>
       </ul>
 
-      <ul class="list-unstyled" data-link="menu">
+      <ul class="list-unstyled" data-link="menu" [ngClass]="{'shown':sIndex === 4}">
         <li>
           <a href="Menu.Default.html">
             <i class="simple-icon-control-pause"></i> Default

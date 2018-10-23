@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-12">
+    <div class="mb-2">
+      <h1>{{containerTitle}}</h1>
+      <div class="float-sm-right text-zero" *ngIf="ShowAddNewBTN">
+        <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">ADD NEW</button>
+
+        <div class="btn-group">
+          <div class="btn btn-primary btn-lg pl-4 pr-0 check-button">
+            <label class="custom-control custom-checkbox mb-0 d-inline-block">
+              <input type="checkbox" class="custom-control-input" id="checkAll">
+              <span class="custom-control-label"></span>
+            </label>
+          </div>
+          <button type="button" class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split pl-2 pr-2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumb-container d-none d-sm-block d-lg-inline-block" *ngIf="ShowContainerNav">
+        <ol class="breadcrumb pt-0">
+          <li class="breadcrumb-item">
+            <a href="#">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">{{breadcrumb1}}</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{breadcrumb2}}</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="mb-2">
+      <a class="btn pt-0 pl-0 d-inline-block" *ngIf="ShowDisplayOptions" (click)="collapseCard()">
+        <span *ngIf="collapse === 'on'">
+          Hide Options
+          <i class="simple-icon-arrow-down align-middle" [ngClass]="{'collapse-on':collapse === 'on'}"></i>
+        </span>
+        <span *ngIf="collapse === 'off'">
+          Display Options
+          <i class="simple-icon-arrow-up  align-middle" [ngClass]="{'collapse-on':collapse === 'off'}"></i>
+        </span>
+
+      </a>
+      <div class="collapse d-md-block-custom" id="displayOptions" [ngStyle]="{'height': 0 === collapse}" [@collapse]="collapse">
+
+        <span class="mr-3 mb-2 d-inline-block float-md-left" *ngIf="ShowOrderView">
+          <a href="#" class="mr-2 active">
+            <i class="simple-icon-menu view-icon s"></i>
+          </a>
+          <a href="#" class="mr-2">
+            <i class="simple-icon-list view-icon"></i>
+          </a>
+          <a href="#" class="mr-2">
+            <i class="simple-icon-grid view-icon s"></i>
+          </a>
+        </span>
+        <div class="d-inline-block" *ngIf="ShowOrderSearch">
+          <div class="btn-group float-md-left mr-1 mb-1">
+            <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Order By
+            </button>
+            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 25px, 0px); top: 0px; left: 0px; will-change: transform;">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
+          </div>
+          <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+            <input placeholder="Search...">
+          </div>
+        </div>
+        <div class="float-md-right" *ngIf="showDisplayingItem">
+          <span class="text-muted text-small">Displaying 1-10 of 210 items </span>
+          <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            20
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">10</a>
+            <a class="dropdown-item active" href="#">20</a>
+            <a class="dropdown-item" href="#">30</a>
+            <a class="dropdown-item" href="#">50</a>
+            <a class="dropdown-item" href="#">100</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="separator mb-5"></div>
+  </div>
+</div>

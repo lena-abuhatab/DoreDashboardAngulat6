@@ -1,0 +1,20 @@
+<span *ngFor="let item of menuInfo;let i = index">
+  <li class="menu-item" [ngClass]="{'active':sIndex === i}">
+    <a [routerLink]="[item.routerLink.join('/')]" *ngIf="item.routerLink" routerLinkActive="active" class="menu-link" (click)="onDirectLink(i)"
+      (click)="onDirectLink()">
+      <i class="iconsmind-{{item.icon}}"></i>
+      <span>{{item.title}}</span>
+    </a>
+    <a class="menu-link" *ngIf="!item.routerLink" (click)="selectedSort(i)">
+      <i class="iconsmind-{{item.icon}}" *ngIf="item.icon"></i>
+      <span>{{item.title}}</span>
+    </a>
+
+
+
+
+  </li>
+
+  <app-sub-menu [subMenuInfo]="item.children" sIndex="sIndex" index="i"></app-sub-menu>
+
+</span>

@@ -1,13 +1,9 @@
-a:hover {
-  text-transform: none;
-  text-decoration: none;
-}
-/* .sidebar .sub-menu {
-  left: 330px;
+.sidebar .sub-menu {
+  left: 830px;
   width: 220px;
   top: 80px;
-} */
-/* .sidebar .sub-menu ul li a {
+}
+.sidebar .sub-menu ul li a {
   height: unset;
   padding: unset;
   border: unset;
@@ -17,11 +13,7 @@ a:hover {
 }
 .sidebar .sub-menu {
   box-shadow: unset;
-} */
-
+}
 .list-unstyled.shown {
   display: block;
-}
-.sidebar .main-menu .scroll {
-  overflow: scroll;
 }

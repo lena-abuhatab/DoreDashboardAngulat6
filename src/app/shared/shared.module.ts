@@ -1,3 +1,5 @@
+import { TabHeadingDirective } from "./directives/tab-heading.directive";
+import { TabTranscludeDirective } from "./directives/tab-transclude.directive";
 import { DropdownDirective } from "./directives/dropdown.directive";
 import { NgModule } from "@angular/core";
 import { MaterialModule } from "./modules/material.module";
@@ -18,7 +20,16 @@ import { NgxExampleLibraryModule } from "@ismaestro/ngx-example-library";
 import { WebStorageModule } from "ngx-store";
 import { HeroLoadingComponent } from "./components/hero-loading/hero-loading.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { DropdownComponent } from './components/UI/dropdown/dropdown.component';
+import { DropdownComponent } from "./components/UI/dropdown/dropdown.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { ColorThemeComponent } from "./components/color-theme/color-theme.component";
+import { MenuComponent } from "./components/menu/menu.component";
+import { SubMenuComponent } from "./components/menu/sub-menu/sub-menu.component";
+import { HeaderContainerComponent } from "./components/header-container/header-container.component";
+import { AppMenuComponent } from "./components/app-menu/app-menu.component";
+import { TabsetComponent } from "./components/UI/tabset/tabset.component";
+import { TabContentComponent } from "./components/UI/tabset/tab-content/tab-content.component";
+import { CollapseComponent } from "./components/UI/collapse/collapse.component";
 
 @NgModule({
   imports: [
@@ -42,8 +53,19 @@ import { DropdownComponent } from './components/UI/dropdown/dropdown.component';
     HeroLoadingComponent,
     ScrollToFirstInvalidDirective,
     DropdownDirective,
+    TabTranscludeDirective,
+    TabHeadingDirective,
     SidebarComponent,
-    DropdownComponent
+    DropdownComponent,
+    LoginComponent,
+    ColorThemeComponent,
+    MenuComponent,
+    SubMenuComponent,
+    HeaderContainerComponent,
+    AppMenuComponent,
+    TabsetComponent,
+    TabContentComponent,
+    CollapseComponent
   ],
   exports: [
     CommonModule,
@@ -61,7 +83,14 @@ import { DropdownComponent } from './components/UI/dropdown/dropdown.component';
     HeroLoadingComponent,
     ScrollToFirstInvalidDirective,
     DropdownDirective,
-    DropdownComponent
+    TabTranscludeDirective,
+    TabHeadingDirective,
+    DropdownComponent,
+    ColorThemeComponent,
+    MenuComponent,
+    SubMenuComponent,
+    HeaderContainerComponent,
+    AppMenuComponent
   ]
 })
 export class SharedModule {}

@@ -4356,3 +4356,23 @@ select.form-control:not([size]):not([multiple]) {
   position: fixed;
   z-index: 1
 }
+.sidebar .main-menu ul li a.active:after {
+  content: " ";
+  background: #922c88;
+  color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  width: 6px;
+  height: 90px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.sidebar .main-menu ul li a.active {
+  color: #922c88;
+}
+/* .sidebar .main-menu {
+  -moz-box-shadow:  4px 0px 9px 3px #eaeaea;
+  -webkit-box-shadow: 4px 0px 9px 3px #eaeaea;
+  box-shadow: 4px 0px 9px 3px #eaeaea;
+} */

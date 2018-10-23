@@ -1,0 +1,12 @@
+<div (click)="collapseCard()">
+  <p class="text-muted text-small">
+    <i class="simple-icon-arrow-right" [ngClass]="{'collapse-on':collapse === 'on'}" *ngIf="collapse === 'off'"></i>
+    <i class="simple-icon-arrow-down" *ngIf="collapse === 'on'" [ngClass]="{'collapse-on':collapse === 'off'}"></i>
+    {{toggleTitle}}
+  </p>
+
+
+</div>
+<div class="collapse d-md-block-custom" [ngStyle]="{'height': 0 === collapse}" [@collapse]="collapse">
+  <ng-content></ng-content>
+</div>

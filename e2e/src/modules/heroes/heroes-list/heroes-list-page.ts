@@ -1,5 +1,5 @@
-import {browser, by, element} from 'protractor';
-import {AppConfig} from '../../../../../src/app/configs/app.config';
+import { browser, by, element } from "protractor";
+import { AppConfig } from "../../../../../src/app/configs/app.config";
 
 export class HeroesListPage {
   static navigateTo(): any {
@@ -7,6 +7,6 @@ export class HeroesListPage {
   }
 
   static getNumberHeroes(): any {
-    return element.all(by.css('#left mat-list-item')).count();
+    return element.all(by.css("#left mat-list-item")).count();
   }
 }

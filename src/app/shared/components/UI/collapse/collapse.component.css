@@ -1,0 +1,12 @@
+.collapse.d-md-block-custom {
+  height: auto;
+  overflow: hidden;
+  display: block;
+  margin-left: 19px;
+}
+ul.list-unstyled.mb-3 {
+  margin-left: 18px;
+}
+p.text-muted.text-small {
+  cursor: pointer;
+}

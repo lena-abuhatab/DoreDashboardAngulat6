@@ -1,13 +1,21 @@
-import {animate, AnimationTriggerMetadata, style, transition, trigger} from '@angular/animations';
+import {
+  animate,
+  AnimationTriggerMetadata,
+  style,
+  transition,
+  trigger,
+  state
+} from "@angular/animations";
 declare const require;
-const bowser = require('bowser');
+const bowser = require("bowser");
 
-export const scrollToElement = (element) => {
+export const scrollToElement = element => {
   if (element) {
-    const distance = window.pageYOffset - Math.abs(element.getBoundingClientRect().y);
+    const distance =
+      window.pageYOffset - Math.abs(element.getBoundingClientRect().y);
 
     window.scroll({
-      behavior: 'smooth',
+      behavior: "smooth",
       left: 0,
       top: element.getBoundingClientRect().top + window.scrollY - 150
     });
@@ -20,7 +28,7 @@ export const scrollToElement = (element) => {
   }
 };
 
-export const isPalindrome = (str) => {
+export const isPalindrome = str => {
   const len = Math.floor(str.length / 2);
   for (let i = 0; i < len; i++) {
     if (str[i] !== str[str.length - i - 1]) {
@@ -34,24 +42,35 @@ export const isBrowserValid = () => {
   const browser = bowser.getParser(window.navigator.userAgent);
   return browser.satisfies({
     windows: {
-      'internet explorer': '>10',
+      "internet explorer": ">10"
     },
     macos: {
-      safari: '>10.1'
+      safari: ">10.1"
     },
-    chrome: '>20.1.1432',
-    firefox: '>31',
-    opera: '>22'
+    chrome: ">20.1.1432",
+    firefox: ">31",
+    opera: ">22"
   });
 };
 
-export const fadeInOut: AnimationTriggerMetadata = trigger('fadeInOut', [
-  transition(':enter', [
-    style({opacity: 0}),
-    animate(500, style({opacity: 1}))
+export const fadeInOut: AnimationTriggerMetadata = trigger("fadeInOut", [
+  transition(":enter", [
+    style({ opacity: 0 }),
+    animate(500, style({ opacity: 1 }))
   ]),
-  transition(':leave', [
-    animate(500, style({opacity: 0}))
-  ])
+  transition(":leave", [animate(500, style({ opacity: 0 }))])
 ]);
 
+export const collapse = trigger("collapse", [
+  state("init", style({ height: 0 })),
+  state("off", style({ height: 0 })),
+  state("on", style({ height: "*" })),
+  transition("* => on", [animate("400ms cubic-bezier(.39,.8,.5,.95)")]),
+  transition("on => off", [animate("300ms cubic-bezier(.39,.8,.5,.95)")]),
+  transition("init => off", [animate("0s")])
+]);
+
+export const fadeSlow = trigger("fadeSlow", [
+  transition(":enter", [style({ opacity: 0 }), animate("200ms")]),
+  transition(":leave", [style({ opacity: 1 }), animate("200ms")])
+]);

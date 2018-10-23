@@ -1,0 +1,8 @@
+span.ClaseAll {
+  display: none !important;
+}
+.collapse.d-md-block-custom {
+  height: auto;
+  overflow: hidden;
+  display: block;
+}
