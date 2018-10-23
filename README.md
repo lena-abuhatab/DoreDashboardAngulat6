@@ -1,4 +1,4 @@
-# Example app with Angular 6 + Angular CLI + Angular Material + Docker + Angular Example Library
+<!-- # Example app with Angular 6 + Angular CLI + Angular Material + Docker + Angular Example Library
 
 > ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, etc.
 
@@ -124,8 +124,8 @@ MIT
 
 ## Contributors
 
-Thanks to all contributors and their support! 
+Thanks to all contributors and their support!
 If you have an idea or you want to do something, tell me or just do it!
 I'm always happy to hear your feedback!
 
-Enjoy :metal:
+Enjoy :metal: -->
