@@ -1,3 +1,4 @@
+import { TableDetailsComponent } from "./shared/pages/table-details/table-details.component";
 import { LoginComponent } from "./shared/pages/login/login.component";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -12,6 +13,7 @@ const routes: Routes = [
     loadChildren: "./modules/heroes/heroes.module#HeroesModule"
   },
   { path: "ui", component: LoginComponent },
+  { path: ":id", component: TableDetailsComponent },
   { path: "menu", component: LoginComponent },
   { path: AppConfig.routes.error404, component: Error404PageComponent },
 

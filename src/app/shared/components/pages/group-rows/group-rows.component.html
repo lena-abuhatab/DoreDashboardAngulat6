@@ -1,0 +1,10 @@
+<ul class="list-unstyled mb-3">
+  <li *ngFor="let item of grouped; let i=index">
+    <a>
+      <i class="simple-icon-check"></i>
+      {{item[0][groupRowsBy]}}
+      <span class="float-right" style="color: #922c88;margin-right: 14px;">({{item.length}})</span>
+
+    </a>
+  </li>
+</ul>

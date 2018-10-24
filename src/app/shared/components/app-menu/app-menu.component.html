@@ -1,3 +1,20 @@
+<div class="container-fluid">
+  <div class="row app-row">
+    <div class="col-12 list" data-check-all="checkAll">
+      <app-header-container containerTitle="Table" ShowDisplayOptions=true ShowOrderSearch="true" ShowContainerNav=true breadcrumb1="layout"
+        breadcrumb2="data"></app-header-container>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="mb-4">Data Table</h5>
+          <div class="row">
+            <app-table [data]="data" [columns]="columns"></app-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="app-menu">
   <div class="p-4">
     <div class="scroll">
@@ -5,23 +22,46 @@
       <!-- <app-tabset [navItems]="tabs" [disableStyle]="false" [customNavClass]="'nav-test-class'"></app-tabset> -->
       <app-tabset [customNavClass]="'nav-test-class'">
         <app-tab-content title="Columns" icon="iconsmind-Column-2">
-          <p class="text-muted text-small">Status</p>
+          <p class="text-muted text-small">Columns Filters</p>
           <ul class="list-unstyled mb-3">
-            <li class="active">
-              <a href="#">
-                <i class="simple-icon-refresh"></i>
-                Pending Tasks
-                <span class="float-right">12</span>
-              </a>
+            <li>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" [checked]="true" (change)="toggle('OrderNumber', $event.target.checked)">
+                <label class="custom-control-label">Invoice Number</label>
+              </div>
             </li>
             <li>
-              <a href="#">
-                <i class="simple-icon-check"></i>
-                Completed Tasks
-                <span class="float-right">24</span>
-              </a>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" (change)="toggle('OrderDate', $event.target.checked)" [checked]="true">
+                <label class="custom-control-label">Order Date</label>
+              </div>
+            </li>
+            <li>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" (change)="toggle('SaleAmount', $event.target.checked)" [checked]="true">
+                <label class="custom-control-label">Sale Amount</label>
+              </div>
+            </li>
+            <li>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" (change)="toggle('Employee', $event.target.checked)" [checked]="true">
+                <label class="custom-control-label">Employee</label>
+              </div>
+            </li>
+            <li>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" (change)="toggle('CustomerInfo.StoreCity', $event.target.checked)" [checked]="true">
+                <label class="custom-control-label">City</label>
+              </div>
+            </li>
+            <li>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" (change)="toggle('CustomerInfo.StoreState', $event.target.checked)" [checked]="true">
+                <label class="custom-control-label">State</label>
+              </div>
             </li>
           </ul>
+
         </app-tab-content>
         <app-tab-content title="Filters" icon="iconsmind-Filter-2">
           <app-collapse toggleTitle="Categories">
@@ -158,9 +198,14 @@
           </app-collapse>
         </app-tab-content>
         <app-tab-content title="Mode" icon="iconsmind-Geo-Number">
-          Content of the Mode Tab
+          <span *ngFor="let state of states; let i1 = index">
+            <p class="text-muted text-small" test="test">{{state.title}}</p>
+            <app-group-rows [groupRowsBy]="state.title"></app-group-rows>
+          </span>
         </app-tab-content>
+
       </app-tabset>
+
     </div>
   </div>
   <a class="app-menu-button d-inline-block d-xl-none" href="#">

@@ -1,3 +1,7 @@
+import { TableHeaderComponent } from "./components/pages/table/header/header.component";
+import { RenderPipe } from "./pipes/render-pipe";
+import { SearchPipe } from "./pipes/search-pipe";
+import { SortPipe } from "./pipes/sort.pipe";
 import { TabHeadingDirective } from "./directives/tab-heading.directive";
 import { TabTranscludeDirective } from "./directives/tab-transclude.directive";
 import { DropdownDirective } from "./directives/dropdown.directive";
@@ -30,7 +34,9 @@ import { AppMenuComponent } from "./components/app-menu/app-menu.component";
 import { TabsetComponent } from "./components/UI/tabset/tabset.component";
 import { TabContentComponent } from "./components/UI/tabset/tab-content/tab-content.component";
 import { CollapseComponent } from "./components/UI/collapse/collapse.component";
-
+import { TableComponent } from "./components/pages/table/table.component";
+import { GroupRowsComponent } from "./components/pages/group-rows/group-rows.component";
+import { TableDetailsComponent } from "./pages/table-details/table-details.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -65,7 +71,14 @@ import { CollapseComponent } from "./components/UI/collapse/collapse.component";
     AppMenuComponent,
     TabsetComponent,
     TabContentComponent,
-    CollapseComponent
+    CollapseComponent,
+    TableComponent,
+    GroupRowsComponent,
+    TableDetailsComponent,
+    RenderPipe,
+    SearchPipe,
+    SortPipe,
+    TableHeaderComponent
   ],
   exports: [
     CommonModule,
@@ -90,7 +103,13 @@ import { CollapseComponent } from "./components/UI/collapse/collapse.component";
     MenuComponent,
     SubMenuComponent,
     HeaderContainerComponent,
-    AppMenuComponent
+    AppMenuComponent,
+    TableComponent,
+    GroupRowsComponent,
+    RenderPipe,
+    SearchPipe,
+    SortPipe,
+    TableHeaderComponent
   ]
 })
 export class SharedModule {}

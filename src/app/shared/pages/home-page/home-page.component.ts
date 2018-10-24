@@ -1,7 +1,6 @@
+import { columns, orders, Order } from "./../../../../assets/data";
+import { Columns } from "./../../modules/columns";
 import { Component, OnInit } from "@angular/core";
-import { Hero } from "../../../modules/heroes/shared/hero.model";
-import { HeroService } from "../../../modules/heroes/shared/hero.service";
-import { AppConfig } from "../../../configs/app.config";
 import { fadeInOut } from "../../helpers/utils.helper";
 
 @Component({
@@ -11,19 +10,15 @@ import { fadeInOut } from "../../helpers/utils.helper";
   animations: [fadeInOut]
 })
 export class HomePageComponent implements OnInit {
-  heroes: Hero[] = null;
+  columns: Columns[] = [];
+  columnsCopy: Columns[] = [];
+  data: Order[] = [];
 
-  Show = false;
-
-  constructor(private heroService: HeroService) {}
-
-  ngOnInit() {
-    this.heroService.getHeroes().subscribe(heroes => {
-      this.heroes = heroes
-        .sort((a, b) => {
-          return b.likes - a.likes;
-        })
-        .slice(0, AppConfig.topHeroesLimit);
-    });
+  constructor() {
+    this.data = orders;
+    this.columns = columns;
+    this.columnsCopy = columns;
   }
+
+  ngOnInit() {}
 }

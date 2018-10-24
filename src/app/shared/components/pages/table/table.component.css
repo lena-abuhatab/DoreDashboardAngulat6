@@ -1,0 +1,80 @@
+.demo-container {
+  height: 570px;
+}
+
+#gridContainer {
+  height: 440px;
+}
+
+.dx-filterbuilder-overlay .dx-scrollable-container {
+  max-height: 400px;
+}
+i.iconsmind-Filter-2.fill {
+  color: #932789;
+  font-weight: bold;
+}
+i.iconsmind-Filter-2 {
+  font-size: 16px;
+}
+i.simple-icon-calendar {
+  font-size: 15px;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+}
+
+i.iconsmind-Search-onCloud {
+  font-size: 18px;
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  cursor: pointer;
+}
+#OrderNumber {
+  top: 33px;
+  width: 213px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  margin-top: 0 !important;
+  display: none;
+  height: 294px;
+  padding: unset;
+}
+#OrderNumber.show {
+  display: table;
+}
+.dx-toolbar-items-container {
+  text-align: center;
+}
+.dx-popup-bottom.dx-toolbar {
+  padding: 0;
+}
+button.btn.btn-outline-primary.top-right-button.mr-1 {
+  width: 80px;
+  padding: 5px 0px 5px 0px;
+}
+.dx-datagrid-headers .dropdown-menu {
+  width: 240px;
+  padding: 1.5rem;
+  /* height: 290px; */
+}
+ul.list-unstyled.mb-3.dx-popup-content li {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  padding-top: 6px;
+}
+ul.list-unstyled.mb-3.dx-popup-content {
+  height: 147px;
+  overflow-y: scroll;
+}
+.dx-overlay-content.dx-popup-normal.dx-resizable.dx-dropdowneditor-overlay {
+  width: 100%;
+}
+.dx-scrollable:focus {
+  outline: none;
+}
+.dx-datagrid-nowrap .dx-header-row > td > .dx-datagrid-text-content {
+  float: left;
+}
+.dx-datagrid-text-content.dx-text-content-alignment-right.dx-header-filter-indicator {
+  max-width: 84px;
+}

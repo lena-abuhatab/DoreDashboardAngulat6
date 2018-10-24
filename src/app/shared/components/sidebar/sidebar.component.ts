@@ -1,5 +1,5 @@
-import { MenuService } from "./../../../modules/menu/shared/menu.service";
-import { GlobalService } from "./../../services/global.service";
+import { MenuService } from "../../../modules/menu/shared/menu.service";
+import { GlobalService } from "../../services/global.service";
 import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
 
 @Component({

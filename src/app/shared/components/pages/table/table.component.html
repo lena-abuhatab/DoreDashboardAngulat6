@@ -1,0 +1,132 @@
+<div class="demo-container">
+  <div ng-version="5.1.2">
+    <div id="gridContainer" class="dx-widget dx-visibility-change-handler" role="presentation">
+      <div class="dx-datagrid dx-gridbase-container dx-datagrid-borders" role="grid" aria-label="Data grid" aria-rowcount="11"
+        aria-colcount="6">
+        <div class="dx-datagrid-headers dx-datagrid-nowrap" role="presentation" style="padding-right: 0px;">
+          <ng-container>
+            <div class="dropdown-menu dropdown-menu-right mt-3 position-absolute " [ngClass]="{'show':sIndex === 100}" id="OrderNumber"
+              style="left: -1px;">
+              <div class="dx-overlay-content dx-popup-normal dx-resizable dx-dropdowneditor-overlay">
+                <div class="dx-popup-content">
+                  <div class="dx-scrollable" role="listbox" tabindex="0" aria-activedescendant="dx-9f819ba3-c517-55d8-b691-1c65ea67870d">
+                    <div class="dx-scrollable-wrapper">
+                      <div class="dx-scrollable-container">
+                        <div class="dx-scrollable-content">
+
+                          <div class="dx-scrollview-content" style="transform: translate(0px, 0px);">
+                            <div class="dx-list-select-all">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label">Select All</label>
+                              </div>
+                            </div>
+                            <ul class="list-unstyled mb-3 dx-popup-content">
+                              <li>
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="category1">
+                                  <label class="custom-control-label" for="category1">Flexbox</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="category2">
+                                  <label class="custom-control-label" for="category2">Sass</label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="category3">
+                                  <label class="custom-control-label" for="category3">React</label>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dx-toolbar dx-widget dx-visibility-change-handler dx-collection dx-popup-bottom" role="toolbar">
+                  <div class="dx-toolbar-items-container">
+                    <div>
+                      <button type="button" class="btn btn-outline-primary top-right-button  mr-1" data-target="#exampleModal">Ok</button>
+                      <button type="button" class="btn btn-outline-primary top-right-button  mr-1" data-target="#exampleModal">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <div class="dx-datagrid-content dx-datagrid-scroll-container" role="presentation">
+            <table class="dx-datagrid-table dx-datagrid-table-fixed" role="presentation">
+              <tbody>
+                <tr class="dx-row dx-column-lines dx-header-row" role="row">
+                  <ng-container *ngFor="let column of columns;let colIndex = index">
+                    <td aria-selected="false" role="columnheader" aria-colindex="1" class="dx-datagrid-action dx-cell-focus-disabled" aria-sort="none"
+                      style="text-align: right;">
+                      <div class="dx-column-indicators" style="float: left;" (click)="selectedSort(100)">
+                        <i class="iconsmind-Filter-2"></i>
+                      </div>
+                      <div class="dx-datagrid-text-content dx-text-content-alignment-right dx-header-filter-indicator" (click)="orderBy(column)">
+                        {{ column['title'] }}
+                        <span>&nbsp;</span>
+                      </div>
+                      <i *ngIf="sortByIcon.key === column['key'] && sortByIcon.order==='asc'" class="iconsmind-Up">
+                      </i>
+                      <i *ngIf="sortByIcon.key === column['key'] && sortByIcon.order==='desc'" class="iconsmind-Down">
+                      </i>
+                    </td>
+                  </ng-container>
+                  <!-- <td aria-selected="false" role="columnheader" aria-colindex="2" class="dx-datagrid-action dx-cell-focus-disabled" aria-sort="none"
+                    style="text-align: left;">
+                    <div class="dx-column-indicators" style="float: right;">
+                      <i class="iconsmind-Filter-2 fill"></i>
+                    </div>
+                    <div class="dx-datagrid-text-content dx-text-content-alignment-left dx-header-filter-indicator">Order Date</div>
+                  </td> -->
+                </tr>
+                <tr class="dx-row dx-column-lines dx-datagrid-filter-row" role="row">
+                  <ng-container *ngFor="let column of columns">
+                    <td aria-selected="false" role="gridcell" aria-colindex="1" aria-label="Column Invoice Number, Filter cell" class="dx-editor-cell">
+                      <table-header (update)="onSearch($event)" [column]="column"></table-header>
+                    </td>
+                  </ng-container>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="dx-datagrid-rowsview dx-datagrid-nowrap dx-scrollable dx-visibility-change-handler dx-scrollable-both dx-scrollable-native dx-scrollable-native-generic"
+          role="presentation">
+          <div class="dx-scrollable-wrapper">
+            <div class="dx-scrollable-container">
+              <div class="dx-scrollable-content">
+                <div class="dx-datagrid-content">
+                  <table class="dx-datagrid-table dx-datagrid-table-fixed" role="presentation">
+                    <tbody>
+                      <ng-container *ngFor="let row of data | sort:sortBy | search:term">
+                        <tr class="dx-row dx-data-row dx-column-lines" aria-rowindex="1" aria-selected="false">
+                          <ng-container *ngFor="let column of columns">
+                            <td aria-selected="false" role="gridcell" aria-colindex="1" tabindex="0">{{ row | render:column.key }}</td>
+                          </ng-container>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dx-datagrid-filter-panel">
+          <div class="dx-datagrid-filter-panel-left">
+            <i class="simple-icon-refresh"></i>
+            <div class="dx-datagrid-filter-panel-text">[Order Date] Weekends</div>
+          </div>
+          <div class="dx-datagrid-filter-panel-clear-filter">Clear</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

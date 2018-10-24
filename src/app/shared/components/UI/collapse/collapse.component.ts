@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 
-import { collapse } from "../../../../shared/helpers/utils.helper";
+import { collapse } from "../../../helpers/utils.helper";
 @Component({
   selector: "app-collapse",
   templateUrl: "./collapse.component.html",

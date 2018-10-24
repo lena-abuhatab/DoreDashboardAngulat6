@@ -49,6 +49,8 @@
               // "src/app/styles/perfect-scrollbar.css",
               // "src/app/styles/select2.min.css",
               // "src/app/styles/select2-bootstrap.min.css",
+              "src/app/styles/dx.light.css",
+              "src/app/styles/demo-template.css",
               "src/app/styles/main.css",
               "src/app/styles/styles.css"
             ],

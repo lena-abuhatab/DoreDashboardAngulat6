@@ -1,4 +1,4 @@
-import { GlobalService } from "./../../../../shared/services/global.service";
+import { GlobalService } from "../../../../shared/services/global.service";
 import { Component, Input } from "@angular/core";
 
 @Component({

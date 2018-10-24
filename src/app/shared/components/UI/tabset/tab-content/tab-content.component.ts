@@ -1,4 +1,4 @@
-import { fadeSlow } from "./../../../../helpers/utils.helper";
+import { fadeSlow } from "../../../../helpers/utils.helper";
 import {
   Component,
   Input,
@@ -13,7 +13,7 @@ import {
   transition,
   state
 } from "@angular/animations";
-import { TabHeadingDirective } from "../../../../../shared/directives/tab-heading.directive";
+import { TabHeadingDirective } from "../../../../directives/tab-heading.directive";
 
 @Component({
   animations: [fadeSlow],
