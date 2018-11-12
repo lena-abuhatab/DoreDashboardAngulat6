@@ -55,5 +55,22 @@
   "updateBrowser": "您正在使用一个旧版本浏览器，请更新它并重新加载页面。",
   "yeahPalindrome": "那是一个回文！",
   "yellow": "黄色",
-  "yes": "是的"
+  "yes": "是的",
+  "settings": "设置",
+  "users": "用户",
+  "components": "组件",
+  "profits": "利润",
+  "surveys": "调查",
+  "tasks": "任务",
+  "account": "帐户",
+  "features": "特征",
+  "history": "历史",
+  "support": "支持",
+  "sign-out": "登出",
+  "search": "搜索",
+  "Dashboard": "仪表板",
+  "Layouts": "布局",
+  "Applications": "应用",
+  "UI": "UI",
+  "Menu": "菜单"
 }

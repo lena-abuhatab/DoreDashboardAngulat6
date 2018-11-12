@@ -61,6 +61,26 @@ export const fadeInOut: AnimationTriggerMetadata = trigger("fadeInOut", [
   transition(":leave", [animate(500, style({ opacity: 0 }))])
 ]);
 
+export const leftSideMenu = trigger("leftSideMenu", [
+  transition("void => *", [style({ right: "0" }), animate(2000)]),
+  transition("* => void", [animate(2500, style({ right: "0" }))])
+]);
+
+export const dialogRight = trigger("dialogRight", [
+  transition("void => *", [style({ left: "100%" }), animate(200)]),
+  transition("* => void", [animate(250, style({ left: "100%" }))])
+]);
+
+export const modalDialog = trigger("modalDialog", [
+  transition("void => *", [
+    style({ transform: "scale3d(.3, .3, .3)" }),
+    animate(100)
+  ]),
+  transition("* => void", [
+    animate(100, style({ transform: "scale3d(.0, .0, .0)" }))
+  ])
+]);
+
 export const collapse = trigger("collapse", [
   state("init", style({ height: 0 })),
   state("off", style({ height: 0 })),

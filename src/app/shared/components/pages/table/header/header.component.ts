@@ -17,14 +17,14 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
        (input)="update.emit({value: input.value, key: column.key})"
 >
       <i class="iconsmind-Search-onCloud"></i>
-      <div class="dx-texteditor-buttons-container"></div>
+      <i class="simple-icon-calendar " *ngIf="column.key==='OrderDate'"></i>
     </div>
   </div>
 </div>
 </div>
     `,
   styles: [
-    "i.iconsmind-Search-onCloud {position: absolute;display: block;top: 9px;left: 8px;font-size: 17px; }"
+    "i {position: absolute;display: block;top: 9px;font-size: 17px; } i.simple-icon-calendar {right: 8px;}.iconsmind-Search-onCloud{left: 8px;}"
   ]
 })
 // <input autocomplete="off" class="dx-texteditor-input" type="text" spellcheck="false" min="undefined" max="undefined" step="1"

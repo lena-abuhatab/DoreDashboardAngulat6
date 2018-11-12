@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top">
-  <a href="#" class="menu-button d-none d-md-block">
+  <a class="menu-button d-none d-md-block" (click)="onMenuChange()">
     <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
       <rect x="0.48" y="0.5" width="7" height="1"></rect>
       <rect x="0.48" y="7.5" width="7" height="1"></rect>
@@ -21,7 +21,7 @@
   </a>
 
   <div class="search" data-search-path="Layouts.Search.html?q=">
-    <input placeholder="Search...">
+    <input placeholder="{{'search' | translate}}...">
     <span class="search-icon">
       <i class="simple-icon-magnifier"></i>
     </span>
@@ -36,32 +36,32 @@
       <app-dropdown btnIcon="simple-icon-grid" dropDownID="iconMenuDropdown">
         <a href="#" class="icon-menu-item">
           <i class="iconsmind-Equalizer d-block"></i>
-          <span>Settings</span>
+          <span>{{'settings' | translate}}</span>
         </a>
 
         <a href="#" class="icon-menu-item">
           <i class="iconsmind-MaleFemale d-block"></i>
-          <span>Users</span>
+          <span>{{'users' | translate}}</span>
         </a>
 
         <a href="#" class="icon-menu-item">
           <i class="iconsmind-Puzzle d-block"></i>
-          <span>Components</span>
+          <span>{{'components' | translate}}</span>
         </a>
 
         <a href="#" class="icon-menu-item">
           <i class="iconsmind-Bar-Chart d-block"></i>
-          <span>Profits</span>
+          <span>{{'profits' | translate}}</span>
         </a>
 
         <a href="#" class="icon-menu-item">
           <i class="iconsmind-File-Chart d-block"></i>
-          <span>Surveys</span>
+          <span>{{'surveys' | translate}}</span>
         </a>
 
         <a href="#" class="icon-menu-item">
           <i class="iconsmind-Suitcase d-block"></i>
-          <span>Tasks</span>
+          <span>{{'tasks' | translate}}</span>
         </a>
       </app-dropdown>
 
@@ -90,19 +90,20 @@
           </div>
         </div>
       </app-dropdown>
-
-      <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
-        <i class="simple-icon-size-fullscreen"></i>
-        <i class="simple-icon-size-actual"></i>
-      </button>
-
+      <app-dropdown btnIcon="simple-icon-compass">
+        <!-- routerLink="./" queryParamsHandling="merge" [queryParams]="{ persist_locale: 'en'}" -->
+        <a class="dropdown-item" (click)="changeLang('en')">
+          <i class="iconsmind-United-States"></i> EN</a>
+        <a class="dropdown-item" (click)="changeLang('zh-cn')">
+          <i class="iconsmind-China"></i> CH</a>
+      </app-dropdown>
     </div>
     <app-dropdown userName="Sarah Kortney" userImage="http://dore-jquery.crealeaf.com/img/profile-pic-l.jpg" show="true" class="user">
-      <a class="dropdown-item" href="#">Account</a>
-      <a class="dropdown-item" href="#">Features</a>
-      <a class="dropdown-item" href="#">History</a>
-      <a class="dropdown-item" href="#">Support</a>
-      <a class="dropdown-item" href="#">Sign out</a>
+      <a class="dropdown-item" href="#">{{'account' | translate}}</a>
+      <a class="dropdown-item" href="#">{{'features' | translate}}</a>
+      <a class="dropdown-item" href="#">{{'history' | translate}}</a>
+      <a class="dropdown-item" href="#">{{'support' | translate}}</a>
+      <a class="dropdown-item" href="#">{{'sign-out' | translate}}</a>
     </app-dropdown>
   </div>
 </nav>

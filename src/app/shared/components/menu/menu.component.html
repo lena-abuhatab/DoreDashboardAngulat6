@@ -1,20 +1,30 @@
-<span *ngFor="let item of menuInfo;let i = index">
-  <li class="menu-item" [ngClass]="{'active':sIndex === i}">
-    <a [routerLink]="[item.routerLink.join('/')]" *ngIf="item.routerLink" routerLinkActive="active" class="menu-link" (click)="onDirectLink(i)"
-      (click)="onDirectLink()">
-      <i class="iconsmind-{{item.icon}}"></i>
-      <span>{{item.title}}</span>
-    </a>
-    <a class="menu-link" *ngIf="!item.routerLink" (click)="selectedSort(i)">
-      <i class="iconsmind-{{item.icon}}" *ngIf="item.icon"></i>
-      <span>{{item.title}}</span>
-    </a>
+<ul class="list-unstyled">
+  <ng-container (click)="onItemSelected(item)" *ngFor="let item of navItems;let i = index">
+    <li routerLinkActive="active">
+      <a routerLink="{{item.path}}" *ngIf="!item.children" (click)="onDirectLink()">
+        <i class="iconsmind-{{item.icon}}"></i>
+        <span>{{item.title | translate}}</span>
+      </a>
+      <a *ngIf="item.children" (click)="selectedSort(i)">
+        <i class="iconsmind-{{item.icon}}"></i>
+        <span>{{item.title | translate}}</span>
+      </a>
 
 
+      <div class="sub-menu" *ngIf="item.children" [ngClass]="{'shown':sIndex === i}">
+        <div class="scroll ps">
 
+          <ul class="list-unstyled">
+            <li *ngFor="let child of item.children" (click)="onItemSelected(item)">
+              <a routerLink="{{child.path}}" routerLinkActive="active" (click)="onDirectLink()">
+                <i class="{{child.icon}}"></i> {{child.title | translate}}
+              </a>
+            </li>
+          </ul>
 
-  </li>
+        </div>
+      </div>
 
-  <app-sub-menu [subMenuInfo]="item.children" sIndex="sIndex" index="i"></app-sub-menu>
-
-</span>
+    </li>
+  </ng-container>
+</ul>

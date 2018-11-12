@@ -3,6 +3,9 @@ span.ClaseAll {
 }
 .collapse.d-md-block-custom {
   height: auto;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: block;
 }
+/* button.btn.btn-outline-primary.btn-lg.top-right-button.mr-1 {
+  width: 100%;
+} */

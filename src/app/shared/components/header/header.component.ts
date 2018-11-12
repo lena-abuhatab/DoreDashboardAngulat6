@@ -1,3 +1,5 @@
+import { GlobalService } from "./../../services/global.service";
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 import { Component, Inject, OnInit } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { _ } from "@biesbjerg/ngx-translate-extract/dist/utils/utils";
@@ -18,13 +20,19 @@ export class HeaderComponent implements OnInit {
   menuItems: any[];
   progressBarMode: string;
   currentLang: string;
+  toggleMenu = false;
 
+  currentRoute;
   constructor(
     @Inject(APP_CONFIG) appConfig: any,
     private progressBarService: ProgressBarService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private _globalService: GlobalService
   ) {
     this.appConfig = appConfig;
+    this.currentRoute = this.route;
   }
 
   ngOnInit() {
@@ -33,12 +41,29 @@ export class HeaderComponent implements OnInit {
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;
     });
+    this.route.queryParamMap.subscribe((paramMap: ParamMap) => {
+      const lang = paramMap.get("persist_locale");
+      this.changeLanguage(lang);
+    });
+    // this._globalService.data$.subscribe(data => {
+    //   if (data.ev === "sub-hide") {
+    //     this._globalService.dataBusChanged("test", true);
+    //   }
+    // });
   }
 
-  changeLanguage(language: string): void {
+  private changeLanguage(language: string): void {
     this.translateService.use(language).subscribe(() => {
-      this.loadMenus();
+      // this.loadMenus();
       this.language = language;
+    });
+  }
+
+  changeLang(lang) {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { persist_locale: lang },
+      queryParamsHandling: "merge"
     });
   }
 
@@ -47,5 +72,11 @@ export class HeaderComponent implements OnInit {
       { link: "/", name: _("home") },
       { link: "/" + AppConfig.routes.heroes, name: _("heroesList") }
     ];
+  }
+
+  onMenuChange() {
+    this.toggleMenu = !this.toggleMenu;
+    this._globalService.dataBusChanged("main-sub-hide", this.toggleMenu);
+    // this._globalService.dataBusChanged("sub-hide", false);
   }
 }

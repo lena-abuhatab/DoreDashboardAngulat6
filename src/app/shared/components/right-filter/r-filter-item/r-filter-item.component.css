@@ -1,0 +1,7 @@
+p.d-sm-inline-block {
+  margin-right: 10px;
+}
+a.active span.badge.badge-pill.badge-outline-primary.mb-1 {
+  background-color: #932689;
+  color: #fff;
+}

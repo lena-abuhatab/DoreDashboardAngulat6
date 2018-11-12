@@ -1,6 +1,7 @@
 <div class="position-relative d-inline-block top-header-icon" #anchor (click)="OnDropDownMenu()">
-  <button class="header-icon btn btn-empty" type="button">
+  <button class="header-icon btn btn-empty" [ngClass]="{'btn-outline-dark btn-xs dropdown-toggle': sortClasses}" type="button">
     <i class="{{btnIcon}}"></i>
+    <span *ngIf="sortClasses">{{sortByTitle}}</span>
     <span *ngIf="show">
       <span class="name">{{userName}}</span>
       <span>

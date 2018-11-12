@@ -1,0 +1,20 @@
+<div class="modal fade modal-right show" *ngIf="showModal" [@dialogRight] id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" (click)="onCloseModal()">×</span>
+        </button>
+      </div>
+
+      <ng-content></ng-content>
+
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal" (click)="onCloseModal()">Cancel</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="showModal" (click)="onCloseModal()"></div>

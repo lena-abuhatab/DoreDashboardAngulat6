@@ -1,0 +1,9 @@
+<div data-notify="container" class="col-11 col-sm-3 alert alert-primary animated fadeInDown" role="alert" data-notify-position="top-left"
+  style="display: inline-block; margin: 0px auto; position: fixed; transition: all 0.5s ease-in-out 0s; z-index: 1031; top: 20px; left: 20px; animation-iteration-count: 1;"
+  *ngIf="_messageService.messages.length">
+  <button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>
+  <span data-notify="icon"></span>
+  <span data-notify="title">Bootstrap Notify</span>
+  <span data-notify="message " *ngFor="let message of _messageService.messages">{{message}}</span>
+  <!-- <a href="#" target="_blank" data-notify="url"></a> -->
+</div>

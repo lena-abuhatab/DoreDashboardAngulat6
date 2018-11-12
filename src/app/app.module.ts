@@ -1,4 +1,4 @@
-import { MenuComponent } from "./modules/menu/pages/menu/menu.component";
+import { ErrorInterceptor } from "./shared/services/error-interceptor";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { CoreModule } from "./core/core.module";
@@ -10,6 +10,8 @@ import { WebpackTranslateLoader } from "./webpack-translate-loader";
 import { APP_CONFIG, AppConfig } from "./configs/app.config";
 import { SharedModule } from "./shared/shared.module";
 import { NgxExampleLibraryModule } from "@ismaestro/ngx-example-library";
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 @NgModule({
   imports: [
@@ -29,10 +31,14 @@ import { NgxExampleLibraryModule } from "@ismaestro/ngx-example-library";
     }),
     CoreModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  declarations: [AppComponent, MenuComponent],
-  providers: [{ provide: APP_CONFIG, useValue: AppConfig }],
+  declarations: [AppComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: APP_CONFIG, useValue: AppConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

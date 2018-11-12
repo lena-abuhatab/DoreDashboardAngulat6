@@ -1,0 +1,43 @@
+<!-- <div >
+  <a mat-list-item *ngIf="item.children">
+    <mat-icon class="routeIcon">{{item.iconName}}</mat-icon>
+    {{item.displayName}}
+  </a>
+  <a *ngIf="!item.children" routerLink="{{item.route}}" (click)="onItemSelected(item)"> {{item.displayName}}</a>
+  <div *ngFor="let child of item.children">
+    <div (click)="onItemSelected(item)">
+      <a mat-list-item *ngIf="child.children">
+        <mat-icon class="routeIcon">{{child.iconName}}</mat-icon>
+        {{child.displayName}}
+      </a>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <ng-container (click)="onItemSelected(item)" *ngFor="let item of navItems">
+  <ul class="list-unstyled" data-link="dashboard">
+    <li>
+      <a href="#dashboard">
+        <i class="iconsmind-Shop-4"></i>
+        <span>{{item.iconName}}</span>
+      </a>
+
+      <div class="sub-menu">
+        <div class="scroll ps">
+
+          <ul class="list-unstyled" data-link="applications">
+            <li class="active" *ngFor="let child of item.children" (click)="onItemSelected(item)">
+              <a href="Apps.Todo.List.html">
+                <i class="simple-icon-check"></i> {{child.displayName}}
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+    </li>
+  </ul>
+
+</ng-container> -->

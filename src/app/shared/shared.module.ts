@@ -1,3 +1,4 @@
+import { GlobalSearchPipe } from "./pipes/global-search-pipe";
 import { TableHeaderComponent } from "./components/pages/table/header/header.component";
 import { RenderPipe } from "./pipes/render-pipe";
 import { SearchPipe } from "./pipes/search-pipe";
@@ -6,7 +7,6 @@ import { TabHeadingDirective } from "./directives/tab-heading.directive";
 import { TabTranscludeDirective } from "./directives/tab-transclude.directive";
 import { DropdownDirective } from "./directives/dropdown.directive";
 import { NgModule } from "@angular/core";
-import { MaterialModule } from "./modules/material.module";
 import { TranslateModule } from "@ngx-translate/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CommonModule } from "@angular/common";
@@ -18,11 +18,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { Error404PageComponent } from "./pages/error404-page/error404-page.component";
-import { HeroCardComponent } from "./components/hero-card/hero-card.component";
 import { ScrollToFirstInvalidDirective } from "./directives/scroll-to-first-invalid.directive";
 import { NgxExampleLibraryModule } from "@ismaestro/ngx-example-library";
 import { WebStorageModule } from "ngx-store";
-import { HeroLoadingComponent } from "./components/hero-loading/hero-loading.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { DropdownComponent } from "./components/UI/dropdown/dropdown.component";
 import { LoginComponent } from "./pages/login/login.component";
@@ -36,17 +34,28 @@ import { TabContentComponent } from "./components/UI/tabset/tab-content/tab-cont
 import { CollapseComponent } from "./components/UI/collapse/collapse.component";
 import { TableComponent } from "./components/pages/table/table.component";
 import { GroupRowsComponent } from "./components/pages/group-rows/group-rows.component";
-import { TableDetailsComponent } from "./pages/table-details/table-details.component";
+
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from "ng-pick-datetime";
+import { ModalRightComponent } from "./components/UI/modal-right/modal-right.component";
+import { TestMenuComponent } from "./pages/login/test-menu/test-menu.component";
+import { ListThumbnailLoadingComponent } from "./components/page-loading/list-thumbnail-loading/list-thumbnail-loading.component";
+import { EmptyPageComponent } from "./components/pages/empty-page/empty-page.component";
+import { DefaultModalComponent } from "./components/UI/default-modal/default-modal.component";
+import { RightFilterComponent } from "./components/right-filter/right-filter.component";
+import { RFilterItemComponent } from "./components/right-filter/r-filter-item/r-filter-item.component";
+import { GlobalSearchComponent } from "./components/global-search/global-search.component";
+import { MasBannerComponent } from "./components/mas-banner/mas-banner.component";
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
     FlexLayoutModule,
     TranslateModule.forChild(),
     ReactiveFormsModule,
     RouterModule,
     NgxExampleLibraryModule,
-    WebStorageModule
+    WebStorageModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   declarations: [
     HomePageComponent,
@@ -55,8 +64,6 @@ import { TableDetailsComponent } from "./pages/table-details/table-details.compo
     SearchBarComponent,
     FooterComponent,
     SpinnerComponent,
-    HeroCardComponent,
-    HeroLoadingComponent,
     ScrollToFirstInvalidDirective,
     DropdownDirective,
     TabTranscludeDirective,
@@ -74,15 +81,23 @@ import { TableDetailsComponent } from "./pages/table-details/table-details.compo
     CollapseComponent,
     TableComponent,
     GroupRowsComponent,
-    TableDetailsComponent,
     RenderPipe,
     SearchPipe,
     SortPipe,
-    TableHeaderComponent
+    TableHeaderComponent,
+    ModalRightComponent,
+    TestMenuComponent,
+    ListThumbnailLoadingComponent,
+    EmptyPageComponent,
+    DefaultModalComponent,
+    RightFilterComponent,
+    RFilterItemComponent,
+    GlobalSearchComponent,
+    GlobalSearchPipe,
+    MasBannerComponent
   ],
   exports: [
     CommonModule,
-    MaterialModule,
     FlexLayoutModule,
     TranslateModule,
     NgxExampleLibraryModule,
@@ -92,8 +107,6 @@ import { TableDetailsComponent } from "./pages/table-details/table-details.compo
     SearchBarComponent,
     FooterComponent,
     SpinnerComponent,
-    HeroCardComponent,
-    HeroLoadingComponent,
     ScrollToFirstInvalidDirective,
     DropdownDirective,
     TabTranscludeDirective,
@@ -109,7 +122,18 @@ import { TableDetailsComponent } from "./pages/table-details/table-details.compo
     RenderPipe,
     SearchPipe,
     SortPipe,
-    TableHeaderComponent
+    TableHeaderComponent,
+    ModalRightComponent,
+    TabsetComponent,
+    TabContentComponent,
+    ListThumbnailLoadingComponent,
+    EmptyPageComponent,
+    DefaultModalComponent,
+    RightFilterComponent,
+    RFilterItemComponent,
+    GlobalSearchComponent,
+    GlobalSearchPipe,
+    MasBannerComponent
   ]
 })
 export class SharedModule {}

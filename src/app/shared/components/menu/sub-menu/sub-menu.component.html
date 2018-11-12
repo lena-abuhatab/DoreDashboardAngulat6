@@ -1,11 +1,23 @@
-<div class="sub-menu">
-  <div class="scroll ps" style="height: 335px;">
-    <ul class="list-unstyled" data-link="dashboard"  [ngClass]="{'shown':sIndex === index}">
-      <li *ngFor="let item of subMenuInfo;let i = index">
-        <a >
-          <i class="simple-icon-briefcase"></i> {{item.title}}
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+<ul class="list-unstyled" data-link="dashboard">
+  <li>
+    <a href="#dashboard">
+      <i class="iconsmind-Shop-4"></i>
+      <span>Dashboards</span>
+    </a>
+
+    <div class="sub-menu">
+      <div class="scroll ps">
+
+        <ul class="list-unstyled" data-link="applications">
+          <li class="active">
+            <a href="Apps.Todo.List.html">
+              <i class="simple-icon-check"></i> Todo
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </li>
+</ul>

@@ -1,0 +1,12 @@
+.bd-example-modal-sm.show {
+  display: block;
+}
+span.bold-text {
+  font-weight: bold;
+  font-size: 14px;
+  color: #922c88;
+}
+.btn.btn-not-clickable:not(:disabled):not(.disabled) {
+  cursor: default;
+  margin-right: 10px;
+}

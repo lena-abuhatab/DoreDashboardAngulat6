@@ -1,18 +1,34 @@
-<div id="app-container" class="menu-sub-hidden" [ngClass]="{' sub-show-temporary':sidebarToggle}">
-  <main>
-    <router-outlet *ngIf="isOnline;else isOffline"></router-outlet>
+<div id="app-container" class="menu-sub-hidden" [ngClass]="{' sub-show-temporary':sidebarToggle, 'main-hidden sub-hidden': mainSubHide}">
+  <main (click)="closeLeftSide()">
+    <!-- *ngIf="isOnline;else isOffline" -->
+    <router-outlet></router-outlet>
   </main>
-  <app-header>
+  <app-header (click)="closeLeftSide()">
   </app-header>
   <app-sidebar></app-sidebar>
 
-
+  <app-mas-banner></app-mas-banner>
   <app-color-theme></app-color-theme>
   <ng-template #isOffline>
-    <div>
-      <p class="offline-error">{{'offlineMessage' | translate}}&nbsp;&nbsp;&nbsp;
-        <span>:&nbsp;)</span>
-      </p>
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4 no-connection">
+          <div class="card-body">
+            <div class="jumbotron">
+              <h1 class="display-4">
+                <i class="iconsmind-Communication-Tower"></i>connection failure</h1>
+              <p class="lead">{{'offlineMessage' | translate}}</p>
+              <hr class="my-4">
+              <p>something has gone wrong with the internet connection let's get another shot.
+              </p>
+              <p class="lead  mb-0">
+                <a class="btn btn-primary btn-lg" href="#" role="button">TRY AGAIN</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>

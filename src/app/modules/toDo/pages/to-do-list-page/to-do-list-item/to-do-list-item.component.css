@@ -1,0 +1,6 @@
+.d-flex.flex-grow-1.min-width-zero.ng-star-inserted.active {
+  box-shadow: 0 3px 30px rgba(0, 0, 0, 0.1), 0 3px 20px rgba(0, 0, 0, 0.1);
+}
+.d-flex.flex-grow-1.min-width-zero.ng-star-inserted.not-active {
+  box-shadow: unset;
+}

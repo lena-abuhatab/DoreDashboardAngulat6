@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { NavItem } from "./nav-item";
+import { NavService } from "./nav.service";
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation,
+  AfterViewInit
+} from "@angular/core";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements AfterViewInit {
+  constructor(private navService: NavService) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  ngAfterViewInit() {
+    // this.navService.appDrawer = this.appDrawer;
   }
-
 }

@@ -1,0 +1,204 @@
+<div class="container-fluid">
+  <div class="row app-row ">
+    <div class="col-12 survey-app">
+      <div class="mb-2">
+        <h1>
+          <i class="iconsmind-Bar-Chart"></i> Developer Survey</h1>
+        <div class="float-md-right">
+
+          <button type="button" class="btn btn-lg btn-outline-primary dropdown-toggle dropdown-toggle-split top-right-button top-right-button-single"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ACTIONS
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(805px, 42px, 0px); top: 0px; left: 0px; will-change: transform;">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/Apps.Todo.List" class="back-link">
+        <i class="iconsmind-Back"></i> Back</a>
+    </div>
+    <app-tabset [customNavClass]="'nav-todo-detials  separator-tabs ml-0 mb-5'">
+      <app-tab-content title="DETAILS" icon="iconsmind-File-HorizontalText">
+        <div class="tab-content mb-4">
+          <div class="tab-pane show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+            <div class="row">
+
+              <div class="col-lg-4 col-12 mb-4">
+                <div class="card mb-4">
+                  <div class="position-absolute card-top-buttons" *ngIf="todo">
+                    <button class="btn btn-header-light trach-icon icon-button" (click)="deleteTodo()">
+                      <i class="simple-icon-trash"></i>
+                    </button>
+                    <app-todo-remove [showModal]="showModal">
+                      <button type="button" class="btn btn-primary" (click)="onDelete()">Delete</button>
+                    </app-todo-remove>
+                    <button class="btn btn-header-light icon-button" (click)="onOpenModal()">
+                      <i class="simple-icon-pencil"></i>
+                    </button>
+                    <app-default-modal [showModal]="showDefaultModal">
+                      <app-to-do-create></app-to-do-create>
+                    </app-default-modal>
+                  </div>
+                  <div class="card-body">
+                    <p class="list-item-heading mb-4">Summary</p>
+                    <p class="text-muted text-small mb-2">Name</p>
+                    <p class="mb-3">
+                      {{name}}
+                    </p>
+                    <p class="text-muted text-small mb-2">Details</p>
+                    <p class="mb-3" *ngIf="todo?.todo_description">
+                      {{todo?.todo_description}}
+                      <br>
+                    </p>
+                    <p class="mb-3 light-text" *ngIf="!todo.todo_description">
+                      -- No Details --
+                      <br>
+                    </p>
+
+                    <p class="text-muted text-small mb-2">Date</p>
+                    <p class="mb-3">
+                      {{todo?.todo_date | date: 'dd.MM.yyyy'}}
+                    </p>
+
+                    <p class="text-muted text-small mb-2">Labels</p>
+                    <div>
+                      <p class="d-sm-inline-block mb-1">
+                        <a href="#">
+                          <span class="badge badge-pill badge-outline-theme-3 mb-1">{{todo?.todo_labels}}</span>
+                        </a>
+                      </p>
+                      <p class="d-sm-inline-block  mb-1">
+                        <a href="#">
+                          <span class="badge badge-pill badge-outline-secondary mb-1">PERSONAL</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-8">
+                <div class="sortable-survey">
+                  <div>
+                    <div class="card question d-flex mb-4 edit-quesiton">
+                      <div class="d-flex flex-grow-1 min-width-zero">
+
+                        <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                          <div class="list-item-heading mb-0 truncate w-80 mb-1 mt-1">
+                            <span class="heading-number d-inline-block">
+                              1
+                            </span>
+                            {{todo?.todo_name}}
+                          </div>
+                        </div>
+                        <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
+                          <button class="btn btn-outline-theme-3 icon-button edit-button">
+                            <i class="simple-icon-pencil"></i>
+                          </button>
+                          <button class="btn btn-outline-theme-3 icon-button view-button">
+                            <i class="simple-icon-eye"></i>
+                          </button>
+                          <button class="btn btn-outline-theme-3 icon-button rotate-icon-click rotate" type="button" data-toggle="collapse" data-target="#q1"
+                            aria-expanded="true" aria-controls="q1">
+                            <i class="simple-icon-arrow-down with-rotate-icon"></i>
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-outline-primary btn-sm mb-2">
+                    <i class="simple-icon-plus btn-group-icon"></i>
+                    Add Question</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-tab-content>
+      <app-tab-content title="RESULTS" icon="iconsmind-Line-Chart">
+        test
+      </app-tab-content>
+    </app-tabset>
+
+  </div>
+</div>
+<div class="app-menu">
+  <div class="p-4">
+    <div class="scroll ps" style="height: 270px;">
+      <p class="text-muted text-small">Status</p>
+      <ul class="list-unstyled mb-5">
+        <li class="active">
+          <a href="#">
+            <i class="simple-icon-refresh"></i>
+            Active Surveys
+            <span class="float-right">12</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="simple-icon-check"></i>
+            Completed Surveys
+            <span class="float-right">24</span>
+
+          </a>
+        </li>
+      </ul>
+
+      <p class="text-muted text-small">Categories</p>
+      <ul class="list-unstyled mb-5">
+        <li>
+          <div class="custom-control custom-checkbox mb-2">
+            <input type="checkbox" class="custom-control-input" id="category1">
+            <label class="custom-control-label" for="category1">Development</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox mb-2">
+            <input type="checkbox" class="custom-control-input" id="category2">
+            <label class="custom-control-label" for="category2">Workplace</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox ">
+            <input type="checkbox" class="custom-control-input" id="category3">
+            <label class="custom-control-label" for="category3">Hardware</label>
+          </div>
+        </li>
+      </ul>
+
+      <p class="text-muted text-small">Labels</p>
+      <div>
+        <p class="d-sm-inline-block mb-1">
+          <a href="#">
+            <span class="badge badge-pill badge-outline-primary mb-1">NEW FRAMEWORK</span>
+          </a>
+        </p>
+
+        <p class="d-sm-inline-block mb-1">
+          <a href="#">
+            <span class="badge badge-pill badge-outline-theme-3 mb-1">EDUCATION</span>
+          </a>
+        </p>
+        <p class="d-sm-inline-block  mb-1">
+          <a href="#">
+            <span class="badge badge-pill badge-outline-secondary mb-1">PERSONAL</span>
+          </a>
+        </p>
+      </div>
+
+      <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+      </div>
+      <div class="ps__rail-y" style="top: 0px; right: 0px;">
+        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+      </div>
+    </div>
+  </div>
+  <a class="app-menu-button d-inline-block d-xl-none" href="#">
+    <i class="simple-icon-refresh"></i>
+  </a>
+</div>

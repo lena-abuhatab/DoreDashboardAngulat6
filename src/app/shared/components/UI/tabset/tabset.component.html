@@ -1,12 +1,13 @@
 <nav [ngClass]="{'tabset-style': !disableStyle}">
-  <ul class="nav nav-tabs separator-tabs ml-0 mb-5" [ngClass]="customNavClass" role="tablist">
-    <li class="nav-item" *ngFor="let nav of tabs; let i = index" (click)="changeActiveTab(nav)">
-      <a class="nav-link" [class.active]="nav.active" [class.disabled]="nav.disabled">
-        <i [ngClass]="nav.icon"></i> {{nav.title}}</a>
+  <ul class="nav nav-tabs" [ngClass]="customNavClass" role="tablist">
+    <li class="nav-item" *ngFor="let nav of tabs; let i = index" [ngClass]="customLiClass" (click)="changeActiveTab(nav)">
+      <a class="nav-link" [class.active]="nav.active" [class.disabled]="nav.disabled" id="first-tab" data-toggle="tab" role="tab"
+        aria-selected="true">
+        <i [ngClass]="nav.icon"></i>{{nav.title}}</a>
     </li>
   </ul>
 </nav>
-<div class="tab-content">
+<div class="tab-content" [ngClass]="customTabContentClass">
   <div class="tabset-content">
     <ng-content></ng-content>
   </div>

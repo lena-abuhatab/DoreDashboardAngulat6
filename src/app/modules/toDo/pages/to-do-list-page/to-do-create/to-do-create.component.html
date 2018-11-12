@@ -1,0 +1,75 @@
+<form (submit)="onAddPost(postForm.value)" #postForm="ngForm">
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="Title">Title</label>
+      <input type="text" class="form-control" id="Title" placeholder="Enter title" name="todo_name" [ngModel]="todo?.todo_name"
+        required #title="ngModel" [ngClass]="{'form-field__label--error':title.touched && title.invalid || message?.todo_name}">
+      <small class="form-text text-muted error" *ngIf="title.touched && title.invalid || message?.todo_name">
+
+        <span *ngIf="message">(Title {{message?.todo_name}} )</span>
+        <span *ngIf="title.touched && title.invalid">can't be blank</span>
+      </small>
+    </div>
+    <div class="form-group">
+      <label>Details</label>
+      <textarea class="form-control" [ngModel]="todo?.todo_description" #details="ngModel" name="todo_description" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <select class="form-control select2-single select2-hidden-accessible" aria-hidden="true" name="todo_categories" [ngModel]="todo?.todo_categories"
+        required #category="ngModel" [ngClass]="{'form-field__label--error':category.touched && category.invalid}">
+        <option label="&nbsp;">&nbsp;</option>
+        <option value="Personal">Personal</option>
+        <option value="Store">Store</option>
+      </select>
+      <small class="form-text text-muted error" *ngIf="category.touched && category.invalid">can't be blank</small>
+    </div>
+
+    <div class="form-group">
+      <label for="Date">Date</label>
+      <input type="text" class="form-control" id="Date" placeholder="Enter date" name="todo_date" [ngModel]="todo?.todo_date" required
+        #date="ngModel" [ngClass]="{'form-field__label--error':date.touched && date.invalid || message?.todo_date}">
+      <small class="form-text text-muted error" *ngIf="date.touched && date.invalid || message?.todo_date">
+        <!-- bsDatepicker [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY' }" -->
+        <span *ngIf="message">({{message?.todo_date}} )</span>
+        <span *ngIf="date.touched && date.invalid">can't be blank</span>
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Labels</label>
+      <select class="form-control select2-single select2-hidden-accessible" aria-hidden="true" name="todo_labels" [ngModel]="todo?.todo_labels"
+        required #labels="ngModel" [ngClass]="{'form-field__label--error':labels.touched && labels.invalid}">
+        <option label="&nbsp;">&nbsp;</option>
+        <option value="HOLD">ON HOLD</option>
+        <option value="PROCESSED">PROCESSED</option>
+      </select>
+      <small class="form-text text-muted error" *ngIf="labels.touched && labels.invalid">can't be blank</small>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" data-dismiss="modal" (click)="onCloseModal()">Cancel</button>
+    <!-- <button  class="btn btn-primary mb-0" >Submit</button> -->
+    <button type="submit" class="btn btn-primary btn-multiple-state active  show-spinner" id="successButton" *ngIf="isLoadingFirst">
+      <div class="spinner d-inline-block">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <span class="icon success" data-toggle="tooltip" data-placement="top" title="" data-original-title="Everything went right!"
+        aria-describedby="tooltip300448">
+        <i class="simple-icon-check"></i>
+      </span>
+      <span class="icon fail" data-toggle="tooltip" data-placement="top" title="" data-original-title="Something went wrong!">
+        <i class="simple-icon-exclamation"></i>
+      </span>
+      <span class="label">Submit</span>
+    </button>
+    <button type="submit" class="btn btn-primary btn-multiple-state" id="successButton" [disabled]="!postForm.valid" *ngIf="!isLoadingFirst">
+      <span class="label">Submit</span>
+    </button>
+
+  </div>
+
+</form>

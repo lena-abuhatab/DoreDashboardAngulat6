@@ -30,6 +30,12 @@ export class DropdownComponent implements OnInit {
   @Input()
   show: boolean;
 
+  @Input()
+  sortByTitle: string;
+
+  @Input()
+  sortClasses: boolean;
+
   @ViewChild("anchor")
   public anchor: ElementRef;
 

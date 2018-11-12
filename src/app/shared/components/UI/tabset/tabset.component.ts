@@ -26,6 +26,12 @@ export class TabsetComponent implements OnInit, AfterContentInit {
   @Input()
   public customNavClass: string = "";
 
+  @Input()
+  public customLiClass: string = "";
+
+  @Input()
+  customTabContentClass: string;
+
   @Output()
   public onSelect = new EventEmitter(false);
 

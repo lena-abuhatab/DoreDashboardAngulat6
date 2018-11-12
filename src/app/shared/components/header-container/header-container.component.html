@@ -3,22 +3,23 @@
     <div class="mb-2">
       <h1>{{containerTitle}}</h1>
       <div class="float-sm-right text-zero" *ngIf="ShowAddNewBTN">
-        <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">ADD NEW</button>
-
-        <div class="btn-group">
+        <button type="button" class="btn btn-outline-primary btn-lg top-right-button  mr-1" data-toggle="modal" data-backdrop="static"
+          data-target="#exampleModal" (click)="onOpenModal()">ADD NEW</button>
+        <!-- *ngIf="ShowOptionsBTN" -->
+        <div class="btn-group" [ngClass]="{'show': removeOption}">
           <div class="btn btn-primary btn-lg pl-4 pr-0 check-button">
             <label class="custom-control custom-checkbox mb-0 d-inline-block">
-              <input type="checkbox" class="custom-control-input" id="checkAll">
+              <input type="checkbox" class="custom-control-input" id="checkAll" (click)="onChangeCategory($event)">
               <span class="custom-control-label"></span>
             </label>
           </div>
           <button type="button" class="btn btn-lg btn-primary dropdown-toggle dropdown-toggle-split pl-2 pr-2" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+            aria-haspopup="true" aria-expanded="false" (click)="onRemoveOptions()">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': removeOption}">
+            <!-- <a class="dropdown-item" href="#">Action</a> -->
+            <a class="dropdown-item" (click)="onRemoveIndex()">Remove Selected</a>
           </div>
         </div>
       </div>
@@ -61,19 +62,15 @@
           </a>
         </span>
         <div class="d-inline-block" *ngIf="ShowOrderSearch">
-          <div class="btn-group float-md-left mr-1 mb-1">
-            <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Order By
-            </button>
-            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 25px, 0px); top: 0px; left: 0px; will-change: transform;">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-            </div>
-          </div>
+
           <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
-            <input placeholder="Search...">
+            <ng-content select="[search]"></ng-content>
           </div>
+          <app-dropdown [sortClasses]="true" sortByTitle="Order By">
+            <ng-content select="[sort]"></ng-content>
+          </app-dropdown>
         </div>
+
         <div class="float-md-right" *ngIf="showDisplayingItem">
           <span class="text-muted text-small">Displaying 1-10 of 210 items </span>
           <button class="btn btn-outline-dark btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

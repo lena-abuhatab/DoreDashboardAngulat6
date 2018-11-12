@@ -1,0 +1,32 @@
+<p class="text-muted text-small">
+  {{filterTitle}}</p>
+<ul class="list-unstyled mb-5">
+  <ng-container *ngFor="let item of grouped; let i=index">
+    <li routerLinkActive="active" *ngIf="groupRowsBy === groupTitle">
+      <a [routerLink]="['/Apps.Todo.List']" queryParamsHandling="merge" [queryParams]="{categorie_filter: item[0][groupRowsBy]  }">
+        <i class="simple-icon-check"></i>
+        {{item[0][groupRowsBy]}}
+        <span class="float-right"> ({{item.length}})</span>
+      </a>
+    </li>
+  </ng-container>
+</ul>
+
+<ng-container *ngFor="let item of grouped; let i=index">
+  <p class="d-sm-inline-block mb-1" *ngIf="groupRowsBy === groupTitle2">
+    <a [routerLink]="['/Apps.Todo.List']" queryParamsHandling="merge" [queryParams]="{label_filter: item[0][groupRowsBy] }" routerLinkActive="active">
+      <span class="badge badge-pill badge-outline-primary mb-1">{{item[0][groupRowsBy]}}</span>
+    </a>
+  </p>
+</ng-container>
+
+
+
+<!-- <ul class="list-unstyled mb-5">
+    <li>
+        <div class="custom-control custom-checkbox mb-2">
+            <input type="checkbox" class="custom-control-input" id="category1">
+            <label class="custom-control-label" for="category1">Flexbox</label>
+        </div>
+    </li>
+</ul> -->

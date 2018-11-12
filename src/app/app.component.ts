@@ -3,7 +3,6 @@ import { Component, OnInit } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { Meta, Title } from "@angular/platform-browser";
 import { NavigationEnd, Router } from "@angular/router";
-import { MatSnackBar } from "@angular/material";
 import { _ } from "@biesbjerg/ngx-translate-extract/dist/utils/utils";
 import { AppConfig } from "./configs/app.config";
 import { LocalStorage } from "ngx-store";
@@ -18,6 +17,8 @@ declare const Modernizr;
 })
 export class AppComponent implements OnInit {
   sidebarToggle = false;
+  mainSubHide = false;
+  subHide = false;
 
   @LocalStorage()
   language = "en";
@@ -28,7 +29,6 @@ export class AppComponent implements OnInit {
     private _globalService: GlobalService,
     private title: Title,
     private meta: Meta,
-    private snackBar: MatSnackBar,
     private router: Router
   ) {
     this.isOnline = navigator.onLine;
@@ -61,12 +61,25 @@ export class AppComponent implements OnInit {
           this.sidebarToggle = false;
         } else if (data.ev === "sidebarClose") {
           this.sidebarToggle = false;
+        } else if (data.ev === "sidebarLinkClose") {
+          this.sidebarToggle = false;
+        } else if (data.ev === "main-sub-hide" && data.value === true) {
+          this.mainSubHide = true;
+          this.sidebarToggle = false;
+        } else {
+          this.mainSubHide = false;
+          this.sidebarToggle = true;
         }
       },
       error => {
         console.log("Error: " + error);
       }
     );
+  }
+
+  closeLeftSide() {
+    this._globalService.dataBusChanged("sidebarToggle", true);
+    this._globalService.dataBusChanged("sidebarColorToggle", false);
   }
 
   onEvents() {
@@ -99,7 +112,7 @@ export class AppComponent implements OnInit {
       this.translateService
         .get([String(_("changeBrowser"))])
         .subscribe(texts => {
-          this.snackBar.open(texts["changeBrowser"], "OK");
+          // this.snackBar.open(texts["changeBrowser"], "OK");
         });
     }
   }
@@ -121,7 +134,7 @@ export class AppComponent implements OnInit {
       this.translateService
         .get([String(_("updateBrowser"))])
         .subscribe(texts => {
-          this.snackBar.open(texts["updateBrowser"], "OK");
+          // this.snackBar.open(texts["updateBrowser"], "OK");
         });
     }
 

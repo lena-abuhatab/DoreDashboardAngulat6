@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row app-row">
+    <div class="col-12 list" data-check-all="checkAll">
+      <app-header-container containerTitle="Todo" [ShowDisplayOptions]="filteredTodoList.length !== 0" [ShowOrderSearch]="filteredTodoList.length !== 0"
+        [ShowAddNewBTN]="true">
+        <app-global-search search (globalUpdate)="onGlobalSearch($event)"></app-global-search>
+        <ng-container sort>
+          <a class="dropdown-item" (click)="sortByNameAsc()">Name asc</a>
+          <a class="dropdown-item" (click)="sortByNameDesc()">Name desc</a>
+        </ng-container>
+      </app-header-container>
+      <app-modal-right [showModal]="showModal">
+        <app-to-do-create></app-to-do-create>
+      </app-modal-right>
+
+      <ng-template #loadder>
+        <app-list-thumbnail-loading></app-list-thumbnail-loading>
+      </ng-template>
+
+      <div class="list disable-text-selection" data-check-all="checkAll" *ngIf="filteredTodoList; else loadder">
+        <div class="card d-flex flex-row mb-3 " *ngFor="let post of filteredTodoList | global:globalSearchTerm; let i = index">
+          <app-to-do-list-item [todo]="post"></app-to-do-list-item>
+        </div>
+
+
+      </div>
+      <!-- <app-to-do-edit></app-to-do-edit> -->
+      <div *ngIf="filteredTodoList.length === 0">
+        <app-empty-page emptyTitle="No Todo Yet" emptyIcon="iconsmind-Mailbox-Empty" emptyDescription2="when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"
+          emptyDescription="Create your first ToDo List" emptyBTN="Add New"></app-empty-page>
+      </div>
+    </div>
+  </div>
+</div>
+<app-right-filter [emptyData]="filteredTodoList">
+  <app-r-filter-item groupRowsBy="todo_categories" [todo]="filteredTodoList" filterTitle="Categories" groupTitle="todo_categories"></app-r-filter-item>
+
+  <app-r-filter-item groupRowsBy="todo_labels" filterTitle="Labels" [todo]="filteredTodoList" groupTitle2="todo_labels"></app-r-filter-item>
+
+
+  <!-- <p class="text-muted text-small">
+    categorie_filter</p>
+  <ul class="list-unstyled mb-5">
+    <ng-container *ngFor="let item of grouped; let i=index">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/Apps.Todo.List']" queryParamsHandling="merge" [queryParams]="{categorie_filter: item[0][groupRowsBy]  | lowercase}">
+          <i class="simple-icon-check"></i>
+          {{item[0][groupRowsBy]}}
+          <span class="float-right"> ({{item.length}})</span>
+        </a>
+      </li>
+    </ng-container>
+  </ul> -->
+
+
+  <ng-container reset>
+    <div class="reset-search" (click)="reset()">
+      <i class="iconsmind-Reset"></i>
+      <span> Reset search..</span>
+    </div>
+  </ng-container>
+</app-right-filter>

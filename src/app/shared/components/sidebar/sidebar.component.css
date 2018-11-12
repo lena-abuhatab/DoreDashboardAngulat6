@@ -18,10 +18,3 @@ a:hover {
 .sidebar .sub-menu {
   box-shadow: unset;
 } */
-
-.list-unstyled.shown {
-  display: block;
-}
-.sidebar .main-menu .scroll {
-  overflow: scroll;
-}

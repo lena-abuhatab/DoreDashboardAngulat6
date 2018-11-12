@@ -16,198 +16,195 @@
 </div>
 
 <div class="app-menu">
-  <div class="p-4">
-    <div class="scroll">
 
-      <!-- <app-tabset [navItems]="tabs" [disableStyle]="false" [customNavClass]="'nav-test-class'"></app-tabset> -->
-      <app-tabset [customNavClass]="'nav-test-class'">
-        <app-tab-content title="Columns" icon="iconsmind-Column-2">
-          <p class="text-muted text-small">Columns Filters</p>
-          <ul class="list-unstyled mb-3">
-            <li>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" [checked]="true" (change)="toggle('OrderNumber', $event.target.checked)">
-                <label class="custom-control-label">Invoice Number</label>
-              </div>
-            </li>
-            <li>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" (change)="toggle('OrderDate', $event.target.checked)" [checked]="true">
-                <label class="custom-control-label">Order Date</label>
-              </div>
-            </li>
-            <li>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" (change)="toggle('SaleAmount', $event.target.checked)" [checked]="true">
-                <label class="custom-control-label">Sale Amount</label>
-              </div>
-            </li>
-            <li>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" (change)="toggle('Employee', $event.target.checked)" [checked]="true">
-                <label class="custom-control-label">Employee</label>
-              </div>
-            </li>
-            <li>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" (change)="toggle('CustomerInfo.StoreCity', $event.target.checked)" [checked]="true">
-                <label class="custom-control-label">City</label>
-              </div>
-            </li>
-            <li>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" (change)="toggle('CustomerInfo.StoreState', $event.target.checked)" [checked]="true">
-                <label class="custom-control-label">State</label>
-              </div>
-            </li>
-          </ul>
 
-        </app-tab-content>
-        <app-tab-content title="Filters" icon="iconsmind-Filter-2">
-          <app-collapse toggleTitle="Categories">
-            <ul class="list-unstyled mb-3">
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category1">
-                  <label class="custom-control-label" for="category1">Flexbox</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category2">
-                  <label class="custom-control-label" for="category2">Sass</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category3">
-                  <label class="custom-control-label" for="category3">React</label>
-                </div>
-              </li>
-            </ul>
-          </app-collapse>
-          <app-collapse toggleTitle="Categories1">
-            <ul class="list-unstyled mb-3">
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category1">
-                  <label class="custom-control-label" for="category1">Flexbox</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category2">
-                  <label class="custom-control-label" for="category2">Sass</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category3">
-                  <label class="custom-control-label" for="category3">React</label>
-                </div>
-              </li>
-            </ul>
-          </app-collapse>
-          <app-collapse toggleTitle="Categories2">
-            <ul class="list-unstyled mb-3">
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category1">
-                  <label class="custom-control-label" for="category1">Flexbox</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category2">
-                  <label class="custom-control-label" for="category2">Sass</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category3">
-                  <label class="custom-control-label" for="category3">React</label>
-                </div>
-              </li>
-            </ul>
-          </app-collapse>
-          <app-collapse toggleTitle="Categories3">
-            <ul class="list-unstyled mb-3">
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category1">
-                  <label class="custom-control-label" for="category1">Flexbox</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category2">
-                  <label class="custom-control-label" for="category2">Sass</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category3">
-                  <label class="custom-control-label" for="category3">React</label>
-                </div>
-              </li>
-            </ul>
-          </app-collapse>
-          <app-collapse toggleTitle="Categories4">
-            <ul class="list-unstyled mb-3">
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category1">
-                  <label class="custom-control-label" for="category1">Flexbox</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category2">
-                  <label class="custom-control-label" for="category2">Sass</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category3">
-                  <label class="custom-control-label" for="category3">React</label>
-                </div>
-              </li>
-            </ul>
-          </app-collapse>
-          <app-collapse toggleTitle="Categories5">
-            <ul class="list-unstyled mb-3">
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category1">
-                  <label class="custom-control-label" for="category1">Flexbox</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category2">
-                  <label class="custom-control-label" for="category2">Sass</label>
-                </div>
-              </li>
-              <li>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="category3">
-                  <label class="custom-control-label" for="category3">React</label>
-                </div>
-              </li>
-            </ul>
-          </app-collapse>
-        </app-tab-content>
-        <app-tab-content title="Mode" icon="iconsmind-Geo-Number">
-          <span *ngFor="let state of states; let i1 = index">
-            <p class="text-muted text-small" test="test">{{state.title}}</p>
-            <app-group-rows [groupRowsBy]="state.title"></app-group-rows>
-          </span>
-        </app-tab-content>
+  <!-- <app-tabset [navItems]="tabs" [disableStyle]="false" [customNavClass]="'nav-test-class'"></app-tabset> -->
+  <app-tabset [customNavClass]="'nav-right-side  card-header-tabs ml-0 mr-0 mb-1'" [customLiClass]="' w-33 text-center'" [customTabContentClass]="'scrollTabContent'">
+    <app-tab-content title="Columns" icon="iconsmind-Column-2">
+      <p class="text-muted text-small">Columns Filters</p>
+      <ul class="list-unstyled mb-3">
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" [checked]="true" (change)="toggle('OrderNumber', $event.target.checked)">
+            <label class="custom-control-label">Invoice Number</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (change)="toggle('OrderDate', $event.target.checked)" [checked]="true">
+            <label class="custom-control-label">Order Date</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (change)="toggle('SaleAmount', $event.target.checked)" [checked]="true">
+            <label class="custom-control-label">Sale Amount</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (change)="toggle('Employee', $event.target.checked)" [checked]="true">
+            <label class="custom-control-label">Employee</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (change)="toggle('CustomerInfo.StoreCity', $event.target.checked)" [checked]="true">
+            <label class="custom-control-label">City</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (change)="toggle('CustomerInfo.StoreState', $event.target.checked)" [checked]="true">
+            <label class="custom-control-label">State</label>
+          </div>
+        </li>
+      </ul>
 
-      </app-tabset>
+    </app-tab-content>
+    <app-tab-content title="Filters" icon="iconsmind-Filter-2">
+      <app-collapse toggleTitle="Categories">
+        <ul class="list-unstyled mb-3">
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category1">
+              <label class="custom-control-label" for="category1">Flexbox</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category2">
+              <label class="custom-control-label" for="category2">Sass</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category3">
+              <label class="custom-control-label" for="category3">React</label>
+            </div>
+          </li>
+        </ul>
+      </app-collapse>
+      <app-collapse toggleTitle="Categories1">
+        <ul class="list-unstyled mb-3">
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category1">
+              <label class="custom-control-label" for="category1">Flexbox</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category2">
+              <label class="custom-control-label" for="category2">Sass</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category3">
+              <label class="custom-control-label" for="category3">React</label>
+            </div>
+          </li>
+        </ul>
+      </app-collapse>
+      <app-collapse toggleTitle="Categories2">
+        <ul class="list-unstyled mb-3">
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category1">
+              <label class="custom-control-label" for="category1">Flexbox</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category2">
+              <label class="custom-control-label" for="category2">Sass</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category3">
+              <label class="custom-control-label" for="category3">React</label>
+            </div>
+          </li>
+        </ul>
+      </app-collapse>
+      <app-collapse toggleTitle="Categories3">
+        <ul class="list-unstyled mb-3">
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category1">
+              <label class="custom-control-label" for="category1">Flexbox</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category2">
+              <label class="custom-control-label" for="category2">Sass</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category3">
+              <label class="custom-control-label" for="category3">React</label>
+            </div>
+          </li>
+        </ul>
+      </app-collapse>
+      <app-collapse toggleTitle="Categories4">
+        <ul class="list-unstyled mb-3">
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category1">
+              <label class="custom-control-label" for="category1">Flexbox</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category2">
+              <label class="custom-control-label" for="category2">Sass</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category3">
+              <label class="custom-control-label" for="category3">React</label>
+            </div>
+          </li>
+        </ul>
+      </app-collapse>
+      <app-collapse toggleTitle="Categories5">
+        <ul class="list-unstyled mb-3">
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category1">
+              <label class="custom-control-label" for="category1">Flexbox</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category2">
+              <label class="custom-control-label" for="category2">Sass</label>
+            </div>
+          </li>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="category3">
+              <label class="custom-control-label" for="category3">React</label>
+            </div>
+          </li>
+        </ul>
+      </app-collapse>
+    </app-tab-content>
+    <app-tab-content title="Mode" icon="iconsmind-Geo-Number">
+      <span *ngFor="let state of states; let i1 = index">
+        <p class="text-muted text-small" test="test">{{state.title}}</p>
+        <app-group-rows [groupRowsBy]="state.title"></app-group-rows>
+      </span>
+    </app-tab-content>
 
-    </div>
-  </div>
+  </app-tabset>
+
   <a class="app-menu-button d-inline-block d-xl-none" href="#">
     <i class="simple-icon-refresh"></i>
   </a>
